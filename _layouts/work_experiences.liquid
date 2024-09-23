@@ -1,0 +1,29 @@
+<ul>
+  {% for experience in site.work_experiences %}
+    <li>
+      <h3>{{ experience.title }}</h3>
+      <p><strong>Company:</strong> {{ experience.company }}</p>
+      <p><strong>Location:</strong> {{ experience.location }}</p>
+      <p><strong>Duration:</strong> 
+      {% if experience.start_date %}
+        {{ experience.start_date | date: "%Y年%-m月" }} - 
+      {% endif %}
+      {% if experience.end_date %}
+        {{ experience.end_date | date: "%Y年%-m月" }}
+      {% else %}
+        Present
+      {% endif %}
+      </p>
+      <div id="markdown-content">
+        {{ experience.content }}
+      </div>
+      {% if experience.images %}
+        <div class="images">
+          {% for image in experience.images %}
+            <img src="{{ image | prepend: site.baseurl }}" alt="{{ experience.title }}" class="img-fluid" style="margin-right: 10px;"/>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

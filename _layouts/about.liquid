@@ -48,12 +48,12 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
+    <!-- Work experiences -->
+    {% if page.work_experiences %}
       <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+        <a href="{{ '/work_experiences/' | relative_url }}" style="color: inherit">work experiences</a>
       </h2>
-      {% include latest_posts.liquid %}
+      {% include work_experiences.liquid %}
     {% endif %}
 
     <!-- Selected papers -->
